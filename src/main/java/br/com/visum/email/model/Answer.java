@@ -1,22 +1,25 @@
 package br.com.visum.email.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Visum
  *
  */
 @Entity
-public class Answer implements Serializable{
+@Table(name = "answer")
+public class Answer{
 	
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
+
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idAnswer;
+	
 	private long idQuestion;
 	private String typeAnswer;
 	private String textAwser;
@@ -25,6 +28,15 @@ public class Answer implements Serializable{
 	public Answer() {
 		
 	}
+	
+
+	public Answer(long idQuestion, String typeAnswer, String textAwser) {		
+		this.idQuestion = idQuestion;
+		this.typeAnswer = typeAnswer;
+		this.textAwser = textAwser;
+	}
+
+
 
 
 	/**

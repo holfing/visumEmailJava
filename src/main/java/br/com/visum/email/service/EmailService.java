@@ -25,9 +25,11 @@ public class EmailService {
 	/**
 	 * @param answers
 	 */
-	public void saveAnswer(List<Answer> answers) {
-		answerRepository.saveAll(answers);
-		send();
+	public void saveAnswer(List<Answer> answers) throws Exception{
+		for (Answer answer : answers) {
+			answerRepository.save(answer);			
+		}
+		//send();
 	}
 	
 	public String send() {

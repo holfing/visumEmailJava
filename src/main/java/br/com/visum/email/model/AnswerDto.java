@@ -1,6 +1,7 @@
 package br.com.visum.email.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,25 @@ public class AnswerDto implements Serializable{
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
+	
+	/**
+	 * @param dto
+	 * @return
+	 */
+	public List<Answer> converte (AnswerDto dto) {
+		List<Answer> answers = new ArrayList<Answer>();
+		
+		for (Answer it : dto.getAnswers()) {
+			Answer itAnswer = new Answer();
+			itAnswer.setIdQuestion(it.getIdQuestion());
+			itAnswer.setTypeAnswer(it.getTypeAnswer());
+			itAnswer.setTextAwser(it.getTextAwser());
+			
+			answers.add(itAnswer);
+		}
+		
+		return answers;
+	} 
 	
 	
 	
