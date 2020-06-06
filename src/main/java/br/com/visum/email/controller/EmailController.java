@@ -42,6 +42,7 @@ public class EmailController {
 	public ResponseEntity<?> sendEmail(@RequestBody AnswerDto dto) throws Exception{
 		List<Answer> answers = dto.converte(dto);
 		repository.saveAll(answers);
+		emailService.send();
 		return ResponseEntity.ok(answers);
 	}
 
