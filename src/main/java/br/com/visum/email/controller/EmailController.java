@@ -43,7 +43,7 @@ public class EmailController {
 		List<Answer> answers = dto.converte(dto);
 		repository.saveAll(answers);
 		emailService.send();
-		return ResponseEntity.ok(answers);
+		return ResponseEntity.ok().body(answers);
 	}
 
 }
